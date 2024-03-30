@@ -1,0 +1,71 @@
+<div class="container">
+  <!-- free-time.component.html -->
+  <label for="newFreetime" class="form-label fw-bold">Add Free Time</label>
+  <div class="add-freetime d-flex">
+    <select id="newFreetime" class="form-select" [(ngModel)]="selectedDay" name="selectedDay">
+      <option value="Monday">Monday</option>
+      <option value="Tuesday">Tuesday</option>
+      <option value="Wednesday">Wednesday</option>
+      <option value="Thursday">Thursday</option>
+      <option value="Friday">Friday</option>
+      <option value="Saturday">Saturday</option>
+      <option value="Sunday">Sunday</option>
+    </select>
+    <input
+      type="time"
+      id="newFreetime"
+      class="form-control"
+      [(ngModel)]="selectedFreetime"
+      name="selectedFreetime"
+    />
+    <input
+      type="time"
+      id="newFreetimeto"
+      class="form-control"
+      [(ngModel)]="selectedFreetimeto"
+      name="selectedFreetimeto"
+    />
+    <button
+      class="btn btn-primary float-end m-2 btn-lg"
+      (click)="saveNewFreetime()"
+    >
+      Save
+    </button>
+  </div>
+
+
+  <div class="container m-3 mt-5">
+    <!-- Display existing free times -->
+    @if(1 == 1){
+    <div class="existing-freetimes">
+      <div class="table">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Day </th>
+              <th>time From</th>
+              <th>time To</th>
+              <th>action</th>
+            </tr>
+          </thead>
+          @for(freetime of freetimes.freetimes ; track freetime){
+          <tbody>
+            <tr>
+              <td>{{ freetime.days}}</td>
+              <td>{{ freetime.doctor_freetimes | date : "h:mm a" }}</td>
+              <td>{{ freetime.doctor_freetimesto | date : "h:mm a" }}</td>
+              <button
+                (click)="deleteFreetime(freetime.id)"
+                class="btn btn-danger bg-danger text-white fw-bold"
+              >
+                Delete
+              </button>
+            </tr>
+          </tbody>
+          }
+        </table>
+      </div>
+    </div>
+    }
+  </div>
+</div>

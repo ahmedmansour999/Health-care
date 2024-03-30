@@ -1,0 +1,153 @@
+<div class="container register-container w-50 p-4 ">
+  <div class="card shadow border">
+    <div class="card-header ">
+  <h3 class="reg ">login</h3>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="loginForm" class="p-3" (ngSubmit)="handleSubmitForm()">
+        <div class="form-group">
+          <input
+          placeholder="Enter the Email "
+            type="email"
+            class="form-control my-3"
+            id="email"
+            formControlName="email"
+            name="email"
+          />
+          @if (loginForm.get('email')?.errors && loginForm.get('email')?.touched) {
+            <div id="emailHelp" class="alert alert-danger p-1 small w-50 mx-auto text-center  ">
+              @if ( loginForm.get('email')?.getError("required")) {
+                <p> Email is Requried </p>
+              }
+              @if ( loginForm.get('email')?.getError("email")) {
+              <p> Enter the email </p>
+              }
+
+        </div>
+      }
+        </div>
+        <div class="form-group">
+
+          <input
+          placeholder="Enter the Password "
+            type="password"
+            class="form-control my-3"
+            id="password"
+            formControlName="password"
+            name="password"
+          />
+          @if (loginForm.get('password')?.errors && loginForm.get('password')?.touched) {
+            <div id="emailHelp" class="alert alert-danger p-1 small w-50 mx-auto text-center  ">
+              @if ( loginForm.get('password')?.getError("required")) {
+                <p> password is Requried </p>
+              }
+              @if ( loginForm.get('password')?.getError("pattern")){
+                <p> min lenth 6  </p>
+              }
+            </div>
+          }
+        </div>
+<!-- <div class="btnn">
+  <button
+  type="submit"
+  class="btn w-50 mt-3 "
+>
+ login
+</button>
+</div> -->
+<div class="form-group">
+  <button type="submit" class="btn btn-success btn-block" [disabled]="loginForm.invalid"> Login
+  </button>
+</div>
+<p class="text-center">Create Account <a routerLink="/home/register" class="text-success">Register</a> </p>
+</form>
+
+      @if (this.error) {
+        <p class="alert alert-danger p-1 w-50 mx-auto mb-0">{{this.error}}</p>
+      }
+    </div>
+  </div>
+</div>
+
+
+<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+
+
+<div class="container d-flex justify-content-center mt-10">
+  <div class="row col-5">
+
+    <form #formaForm="ngForm" (ngSubmit)="handleSubmitForm(formaForm)">
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+
+        </div>
+
+
+        <input name="email"
+         [(ngModel)]="forma.email"
+          pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
+           required
+          email="" #email="ngModel"
+          class="form-control"
+           placeholder="Email Adress"
+           type="email">
+
+
+
+
+      </div> form-group//
+
+
+      @if(email.invalid && email.touched) {
+        @if(email.errors?.['required']) {
+      <span class="form-text text-danger fw-bold text-center"> This field is required </span>
+      }@if(email.errors?.['pattern']){
+
+
+      <span class="form-text text-danger fw-bold text-center"> invalid Email </span>
+
+
+      } }
+
+
+
+
+
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+        </div>
+        <input class="form-control "
+         name="passwords" [(ngModel)]="forma.password"
+         required #passwords="ngModel"
+          minlength="5" placeholder=" password" type="password">
+
+
+
+
+      </div>
+
+
+      @if(passwords.invalid && passwords.touched) { @if(passwords.errors?.['required']) {
+      <span class="form-text text-danger fw-bold text-center"> This field is required </span>
+      } @if(passwords.errors?.['minlength']) {
+      <span class="form-text text-danger fw-bold text-center">Min length is 8 </span>
+      } }
+
+
+
+      <div class="form-group">
+        <button type="submit" class="btn btn-success btn-block" [disabled]="formaForm.invalid"> Login
+        </button>
+      </div>
+      <p class="text-center">Create Account <a routerLink="/register" class="text-success">Register</a> </p>
+    </form>
+
+
+
+  </div>
+</div> -->
+

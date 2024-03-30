@@ -1,0 +1,293 @@
+<section  >
+
+<div class="row px-0 p-5 px-md-5">
+
+  @for (doctor of doctorData; track doctor.id) {
+  <div class="col-12 col-md-9 px-md-3 my-2">
+    <div class="doctor-card w-100 position-relative">
+      @if (doctor.live_status_text == "Available" ) {
+      <span class="bg-green sign"> {{ doctor.live_status_text }} </span>
+      } @if (doctor.live_status_text != "Available" ) {
+      <span class="bg-danger sign"> {{ doctor.live_status_text }} </span>
+      }
+      <div class="img d-flex align-items-center w-100">
+        <img [src]="doctor.image_url" alt="" class="p-3" />
+        <div class="w-100">
+          <h1>
+            <span>{{ doctor.name }}</span>
+          </h1>
+          <span>{{ doctor.degree }}</span>
+          @if (doctor.experience >10) {
+          <div>
+            <i class="fa-solid fa-star text-warning"></i> <i class="fa-solid fa-star text-warning"></i>
+            <i class="fa-solid fa-star text-warning"></i> <i class="fa-solid fa-star text-warning"></i>
+            <i class="fa-solid fa-star text-warning"></i>
+          </div>
+          } @if(doctor.experience > 2 && doctor.experience <= 7) {
+          <div>
+            <i class="fa-solid fa-star text-warning"></i> <i class="fa-solid fa-star text-warning"></i>
+          </div>
+          } @if (doctor.experience >= 8 && doctor.experience <= 10) {
+          <div>
+            <i class="fa-solid fa-star text-warning"></i> <i class="fa-solid fa-star text-warning"></i>
+            <i class="fa-solid fa-star text-warning"></i> <i class="fa-solid fa-star text-warning"></i>
+          </div>
+          }
+        </div>
+      </div>
+
+      <div class="detailsContainer p-3 d-md-flex justify-content-between">
+        <div>
+          <div class="doctor-details">
+            <i class="fa-solid fa-address-card"></i>
+            <p>
+              <span>{{ doctor.speciality }}</span>
+            </p>
+          </div>
+          <div class="doctor-details">
+            <i class="fa-solid fa-location-dot"></i>
+            <p>المنيل : شارع المنيل الرئيسي - ميدان عم الباشا</p>
+          </div>
+          <div class="doctor-details">
+            <i class="fa-solid fa-coins"></i>
+            <p>price <span> 450 Eg </span></p>
+          </div>
+          <div class="doctor-details">
+            <i class="fa-solid fa-phone"></i>
+            <p><span>0111258796</span></p>
+          </div>
+
+          <button
+            type="button"
+            class="btn btn-primary mt-2"
+            data-bs-toggle="modal"
+            data-bs-target="#staticBackdrop"
+          >
+            احجز الان
+          </button>
+
+          <!-- Modal -->
+          <div
+            class="modal fade"
+            id="staticBackdrop"
+            data-bs-backdrop="static"
+            data-bs-keyboard="false"
+            tabindex="-1"
+            aria-labelledby="staticBackdropLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="staticBackdropLabel">
+                    ادخل بيانات الحجز
+                  </h1>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  <div class="d-flex flex-column">
+                    <div class="inputDiv">
+                      <i class="fa-solid fa-user"></i>
+                      <input type="text" placeholder="Patient name" />
+                    </div>
+                    <div class="inputDiv">
+                      <i class="fa-solid fa-phone"></i>
+                      <input type="number" placeholder="phone number" />
+                    </div>
+                    <div class="inputDiv">
+                      <i class="fa-solid fa-envelope"></i>
+                      <input type="email" placeholder="Email" />
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                  >
+                    Close
+                  </button>
+                  <button type="button" class="btn btn-primary">
+                    احجز الان
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="map mt-2 mt-md-0">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3454.550561199799!2d31.223417674355165!3d30.021059019680436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1458476f1254ca07%3A0xceb958d775feba50!2z2YXZitiv2KfZhiDYp9mE2KjYp9i02Kc!5e0!3m2!1sen!2seg!4v1706748804647!5m2!1sen!2seg"
+            width="100%"
+            height="100%"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  }
+
+  <div class="container2 d-none d-md-block col col-3">
+    <div class="sortContainer text-end">
+      <h5 class="bg-primary text-light p-2">
+        حدد بحثك <i class="fa-solid fa-filter filter"></i>
+      </h5>
+
+      <div class="typeContainer p-2">
+        <button
+          class="typeBtn align-items-center"
+          data-bs-toggle="collapse"
+          data-bs-target="#type"
+          aria-expanded="false"
+          aria-controls="collapseExample"
+        >
+          النوع <i class="fa-solid fa-venus-mars icon"></i>
+        </button>
+        <div class="collapse p-1" id="type">
+          <div class="card card-body p-0 d-flex flex-row justify-content-end">
+            <label for="male" class="px-1 form-check-label">دكتور</label>
+            <input
+              type="radio"
+              name="type"
+              id="male"
+              class="form-check-input"
+            />
+          </div>
+          <div class="card card-body p-0 d-flex flex-row justify-content-end">
+            <label for="female" class="px-1 form-check-label">دكتوره</label>
+            <input
+              type="radio"
+              name="type"
+              id="female"
+              class="form-check-input"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="placeContainer p-2">
+        <button
+          class="placeBtn align-items-center"
+          data-bs-toggle="collapse"
+          data-bs-target="#place"
+          aria-expanded="false"
+          aria-controls="collapseExample"
+        >
+          المنشأه <i class="fa-regular fa-hospital icon"></i>
+        </button>
+        <div class="collapse p-1" id="place">
+          <div class="card card-body p-0 d-flex flex-row justify-content-end">
+            <label for="clinic" class="px-1">عياده </label>
+            <input type="radio" name="place" id="clinic" />
+          </div>
+          <div class="card card-body p-0 d-flex flex-row justify-content-end">
+            <label for="hospital" class="px-1">مستشفي</label>
+            <input type="radio" name="place" id="hospital" />
+          </div>
+        </div>
+      </div>
+
+      <div class="SpecialtiesContainer p-2">
+        <button
+          class="SpecialtiesBtn align-items-center"
+          data-bs-toggle="collapse"
+          data-bs-target="#Specialties"
+          aria-expanded="false"
+          aria-controls="collapseExample"
+        >
+          التخصصات الفرعيه <i class="fa-solid fa-stethoscope icon"></i>
+        </button>
+
+        <div class="collapse p-1" id="Specialties">
+          <div class="card card-body p-0 d-flex justify-content-end">
+            <div>
+              <label class="form-check-label px-1" for="SpecialtiesOne"
+                >اطفال</label
+              >
+              <input
+                class="form-check-input me-1"
+                type="checkbox"
+                value=""
+                id="SpecialtiesOne"
+              />
+            </div>
+
+            <div>
+              <label class="form-check-label px-1" for="SpecialtiesTwo"
+                >جلديه</label
+              >
+              <input
+                class="form-check-input me-1"
+                type="checkbox"
+                value=""
+                id="SpecialtiesTwo"
+              />
+            </div>
+
+            <div>
+              <label class="form-check-label px-1" for="SpecialtiesThree"
+                >اسنان</label
+              >
+              <input
+                class="form-check-input me-1"
+                type="checkbox"
+                value=""
+                id="SpecialtiesThree"
+              />
+            </div>
+
+            <div>
+              <label class="form-check-label px-1" for="Specialtiesfour"
+                >نفسي</label
+              >
+              <input
+                class="form-check-input me-1"
+                type="checkbox"
+                value=""
+                id="Specialtiesfour"
+              />
+            </div>
+
+            <div>
+              <label class="form-check-label px-1" for="Specialtiesfive"
+                >مخ واعصاب</label
+              >
+              <input
+                class="form-check-input me-1"
+                type="checkbox"
+                value=""
+                id="Specialtiesfive"
+              />
+            </div>
+
+            <div>
+              <label class="form-check-label px-1" for="SpecialtiesSix"
+                >نسا وتوليد</label
+              >
+              <input
+                class="form-check-input me-1"
+                type="checkbox"
+                value=""
+                id="SpecialtiesSix"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</section>

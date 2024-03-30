@@ -1,0 +1,96 @@
+<h1 class="header mt-5"  >Hello Now You Can Reserve With Different Doctors</h1>
+<div class="container m-1">
+  <form [formGroup]="appForm" (ngSubmit)="handleSubmitForm()" >
+    <div class="mb-3">
+      <label for="Til" class="form-label">Title</label>
+      <input
+        type="text"
+        class="form-control"
+        id="titleInput"
+        aria-describedby="TitleHelp"
+        name="note"
+        formControlName="note"
+
+      />
+       @if (appForm.controls['note'].invalid && appForm.controls['note'].touched) {
+        @if (appForm.controls['note'].errors?.['required']) {
+            <span  class="form-text text-danger">these field is required.</span>
+
+        }
+        @if (appForm.controls['note'].errors?.['minlength']) {
+            <span  class="form-text text-danger">Min length is 5.</span>
+
+        }
+      }
+
+    </div>
+    <div class="mb-3">
+      <label for="Description" class="form-label">Description</label>
+      <textarea
+        class="form-control"
+        id="Description"
+        cols="5"
+        rows="5"
+        name="description"
+        formControlName="description"
+
+
+      ></textarea>
+      @if (appForm.controls['description'].invalid && appForm.controls['description'].touched) {
+        @if (appForm.controls['description'].errors?.['required']) {
+            <span  class="form-text text-danger">these field is required.</span>
+
+        }
+        @if (appForm.controls['description'].errors?.['minlength']) {
+            <span  class="form-text text-danger">Min length is 10.</span>
+
+        }
+        @if (appForm.controls['description'].errors?.['maxlength']) {
+            <span  class="form-text text-danger">Min length is 100.</span>
+
+        }
+      }
+
+    </div>
+
+    <div class="mb-3">
+      <label for="doctorId" class="form-label">Doctor ID</label>
+      <select class="form-control" id="doctorId" formControlName="doctor_id">
+        @for(doctor of doctors ; track doctor.id){
+        <option [value]="doctor.id">{{ doctor.name }}</option>
+        }
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="patientId" class="form-label">Patient ID</label>
+      <input type="number" class="form-control" id="patientId" name="patient_id" formControlName="patient_id" />
+    </div>
+
+
+
+    <div class="mb-3">
+      <label for="Til" class="form-label">Price</label>
+      <input
+        type="number"
+        class="form-control"
+        id="Price "
+        aria-describedby="priceHelp"
+        name="price"
+        formControlName="price"
+
+
+      />
+    </div>
+    @if (appForm.controls['price'].invalid && appForm.controls['price'].touched) {
+        @if (appForm.controls['price'].errors?.['required']) {
+            <span  class="form-text text-danger">these field is required.</span>
+
+        }
+
+      }
+
+    <button type="submit" class="btn btn-primary" [disabled]="appForm.invalid">Submit</button>
+  </form>
+</div>
+

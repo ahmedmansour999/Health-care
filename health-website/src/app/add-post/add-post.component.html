@@ -1,0 +1,63 @@
+<!-- Add post -->
+
+<div class="container m-5 p-5">
+
+  <form [formGroup]="AddPost" (submit)="newpost()">
+    <div class="form-group">
+
+      <input type="text" class="form-control" id="postTitle" name="title" placeholder="Enter title"
+        formControlName="title" >
+        @if (AddPost.get('title')?.errors && AddPost.get('title')?.touched) {
+          <div id="emailHelp" class="alert alert-danger p-1 small w-50 mx-auto text-center  ">
+            @if ( AddPost.get('title')?.getError("required")) {
+              <p> title is Requried </p>
+            }
+          </div>
+        }
+      </div>
+    <div class="form-group">
+
+      <input type="file" class="form-control" id="image" name="image" placeholder="Enter image"
+        (change)="onImageSelected($event)" >
+        @if (AddPost.get('image')?.errors && AddPost.get('image')?.touched) {
+          <div id="emailHelp" class="alert alert-danger p-1 small w-50 mx-auto text-center  ">
+            @if ( AddPost.get('image')?.getError("required")) {
+              <p> image is Requried </p>
+            }
+          </div>
+        }
+    </div>
+    <div class="form-group">
+
+      <input type="text" class="form-control" id="postHint" name="hint" placeholder="Enter hint"
+        formControlName="hint" >
+        @if (AddPost.get('hint')?.errors && AddPost.get('hint')?.touched) {
+          <div id="emailHelp" class="alert alert-danger p-1 small w-50 mx-auto text-center  ">
+            @if ( AddPost.get('hint')?.getError("required")) {
+              <p> hint is Requried </p>
+            }
+          </div>
+        }
+    </div>
+    <div class="form-group">
+
+      <textarea class="form-control" id="postBody" name="body" rows="3" placeholder="Enter body"
+        formControlName="body" ></textarea>
+        @if (AddPost.get('body')?.errors && AddPost.get('body')?.touched) {
+          <div id="emailHelp" class="alert alert-danger p-1 small w-50 mx-auto text-center  ">
+            @if ( AddPost.get('body')?.getError("required")) {
+              <p> body is Requried </p>
+            }
+            @if ( AddPost.get('body')?.getError("minlength")) {
+              <p> inter more than 3 letters </p>
+            }
+          </div>
+        }
+    </div>
+    <button type="submit" class="btn custom-btn">Create Post</button>
+  </form>
+  @if (this.error) {
+    <p class="alert alert-danger p-1 w-50 mx-auto mb-0">{{this.error}}</p>
+  }
+
+</div>

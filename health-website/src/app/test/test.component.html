@@ -1,0 +1,29 @@
+<h1 class="header mt-5">Hello Now You Can Reserve With Different Doctors</h1>
+<div class="container m-1 mt-5">
+    <form (ngSubmit)="handleSubmitForm()">
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" class="form-control" id="titleInput" name="note" [(ngModel)]="note" />
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea class="form-control" id="description" cols="5" rows="5" name="description"
+                [(ngModel)]="formData.description"></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="price" class="form-label">Price</label>
+            <input type="number" class="form-control" id="price" name="price" [(ngModel)]="formData.price" />
+        </div>
+        <div class="mb-3">
+            <label for="doctorId" class="form-label">Doctor ID</label>
+            <select class="form-control" id="doctorId" name="doctor_id" [(ngModel)]="formData.doctor_id">
+                <option *ngFor="let doctor of doctors" [value]="doctor.id">{{ doctor.name }}</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="patientId" class="form-label">Patient ID</label>
+            <input type="number" class="form-control" id="patien" name="patient_id" [(ngModel)]="formData.patient_id" />
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>

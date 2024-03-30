@@ -1,0 +1,56 @@
+
+
+<div id="topbar" class="d-flex align-items-center fixed-top ">
+  <div class="container d-flex align-items-center justify-content-center justify-content-md-between">
+  @if (!isAuth) {
+      <div class="align-items-center d-none d-md-flex">
+        <a class="bi bi-clock nav-link scrollto text-capitalize" routerLink="login" >Login </a> |
+        <a class="bi bi-clock nav-link scrollto text-capitalize" routerLink="register" >Register </a>
+      </div>
+    }@else {
+      <div class="align-items-center w-100  justify-content-between d-none d-md-flex">
+        <a class="bi bi-clock nav-link scrollto text-capitalize " routerLink="home/fb" > Welcome </a>
+        <a class="btn text-white  fw-bold " (click)="logout()" > logout </a>
+
+      </div>
+    }
+  </div>
+
+</div>
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+
+      <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt=""></a> -->
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <h1 class="logo me-auto"><a href="index.html">Health Care</a></h1>
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="nav-link scrollto" routerLink="/home">Home</a></li>
+
+
+          <li><a class="nav-link scrollto" routerLink="/home/department">Departments</a></li>
+          <li><a class="nav-link scrollto" routerLink="/home/about">about</a></li>
+          <!-- <li><a class="nav-link scrollto"routerLink="/home/patient">Your Appointments</a></li> -->
+          <li><a class="nav-link scrollto" routerLink="doctors">Doctors</a></li>
+
+          @if (isAuth) {
+            @if (user.user.is_admin == 'patient') {
+              <li><a class="nav-link scrollto" routerLink="/home/pf">profile</a></li>
+            }@else if (user.user.is_admin == 'doctor') {
+              <li><a class="nav-link scrollto" routerLink="/admin/DashbordAdminComponent">DashBord Doctor</a></li>
+            }@else if (user.user.is_admin == 'admin') {
+              <li><a class="nav-link scrollto" routerLink="/admin/dashadmin">DashBord Admin</a></li>
+            }
+          }
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+      <!-- <a href="home/ap" class="appointment-btn scrollto"><span class="d-none d-md-inline">Make an</span> Appointment</a> -->
+
+    </div>
+  </header>
+
+

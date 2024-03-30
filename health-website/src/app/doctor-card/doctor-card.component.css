@@ -1,0 +1,108 @@
+* {
+  font-family: "math", sans-serif;
+}
+span {
+  color: green;
+}
+
+section {
+  display: flex;
+  background-color: beige;
+}
+
+.doctor-card {
+  display: flex;
+  padding: 5px;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.doctor-card .img {
+  padding: 1%;
+  padding-left: 3%;
+}
+
+.doctor-card .img img {
+  border-radius: 50%;
+  max-width: 20%;
+}
+
+.doctor-card .doctor-details {
+  display: flex;
+  align-items: center;
+}
+
+.doctor-card .doctor-details p {
+  padding: 0 5px;
+  margin: 0;
+}
+
+.map {
+  overflow: hidden;
+}
+
+/* container2 Css */
+
+.sortContainer {
+  background-color: white;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.card-body {
+  border: none;
+}
+
+.icon {
+  padding: 5px !important;
+}
+
+.typeBtn,
+.placeBtn,
+.SpecialtiesBtn {
+  background: transparent;
+  border: 0;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.modal-body input {
+  margin: 5px;
+  padding: 5px 10px;
+  font-family: emoji !important;
+  letter-spacing: 3px;
+  border: none;
+  outline: none;
+  width: 100%;
+  border-bottom: 1px solid black;
+  padding-left: 5%;
+}
+.inputDiv {
+  position: relative;
+}
+
+.inputDiv svg {
+  position: absolute;
+  top: 29%;
+}
+.sign
+{
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: white;
+  padding: 5px;
+}
+.bg-green
+{
+  background-color: green;
+}
+
+.container2
+{
+  position: fixed;
+  right: 0;
+}

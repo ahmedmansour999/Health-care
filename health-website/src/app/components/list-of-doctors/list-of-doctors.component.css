@@ -1,0 +1,124 @@
+section
+{
+  background-color: #b7b7b783;
+  background-image: url('doctor.jpg'); 
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+ 
+  background-color: #f0f0f0;
+}
+
+.doctorList {
+  background-color: rgba(255, 255, 255, 0.7); /* Adjust the alpha value (0.7) for transparency */
+  color: #000;
+  transition: all 3s;
+  padding: 10px;
+  border-radius: 10px;
+}
+.doctorList:hover{
+  border: 0.5px solid #35d69b;
+}
+.doctorList:hover h5{
+  font-weight: 700;
+}
+/* .btn{
+  background-color: #35d69b;
+  color: #fff;
+  border: 1px solid transparent;
+  box-shadow:1px 2px 1px inset #35d69b ;
+  font-weight: 600;
+} */
+.pagination {
+  --bs-pagination-padding-x: 0.75rem;
+  --bs-pagination-padding-y: 0.375rem;
+  --bs-pagination-font-size: 1rem;
+  --bs-pagination-color: var(--bs-link-color);
+  --bs-pagination-bg: var(--bs-body-bg);
+  --bs-pagination-border-width: var(--bs-border-width);
+  --bs-pagination-border-color: var(--bs-border-color);
+  --bs-pagination-border-radius: var(--bs-border-radius);
+  --bs-pagination-hover-color: var(--bs-link-hover-color);
+  --bs-pagination-hover-bg: var(--bs-tertiary-bg);
+  --bs-pagination-hover-border-color: var(--bs-border-color);
+  --bs-pagination-focus-color: var(--bs-link-hover-color);
+  --bs-pagination-focus-bg: var(--bs-secondary-bg);
+  --bs-pagination-focus-box-shadow: 0 0 0 1px #35d69b;
+  --bs-pagination-active-color: #fff;
+  --bs-pagination-active-bg: #35d69b;
+  --bs-pagination-active-border-color: #35d69b;
+  --bs-pagination-disabled-color: var(--bs-secondary-color);
+  --bs-pagination-disabled-bg: var(--bs-secondary-bg);
+  --bs-pagination-disabled-border-color: var(--bs-border-color);
+  display: flex;
+  padding-left: 0;
+  list-style: none;
+}
+.rattingColor{
+  color:  #FFD43B;
+}
+.form-control:focus {
+  color: var(--bs-body-color);
+  background-color: var(--bs-body-bg);
+  border-color: #35d69b;
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem #35d69b;
+}
+/* .ngx-pagination .current {
+  padding: 0.1875rem 0.625rem;
+  background: #35d69b;
+  color: #fefefe;
+  cursor: default;
+} */
+
+.custom-btn {
+  background-color: #3f8ac0; /* Set the initial background color */
+  color: white; /* Set the text color */
+  transition: background-color 0.3s ease; /* Add a transition for smooth color change */
+}
+
+/* Define hover styles for the button */
+.custom-btn:hover {
+  background-color: #93c2e3;
+  color: rgb(32, 58, 79); /* Change the background color on hover */
+}
+
+/* Card styling */
+.doctor-list {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  margin-bottom: 20px; /* Add spacing between cards */
+}
+
+/* Image styling */
+.doctor-list img {
+  width: 100px;
+  height: 100px;
+  border: 1px solid #ccc; /* Optional: for a subtle border */
+}
+
+/* Hover effect */
+.doctor-list:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Font styling */
+.doctor-list h5 {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.doctor-list p {
+  font-size: 14px;
+}
+
+/* Description truncation */
+.doctor-list p.description {
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Adjust based on desired number of lines */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

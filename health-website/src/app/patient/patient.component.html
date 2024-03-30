@@ -1,0 +1,21 @@
+
+
+<div class="col-md-3 m-1">
+  <div class="card p-2 py-3 text-center">
+    <h5 class="mb-0">Hello {{ patient.name }}</h5>
+    <h5 class="mb-0">Hello {{ patient.age }}</h5>
+    @for (appointment of patient.appointments ; track appointment.id) {
+    <h5 class="mb-0">Hello {{ appointment.doctor_id }}</h5>
+    }
+
+    <div class="ratings mt-2">
+      <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+      <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+    </div>
+    <div class="mt-4 apointment">
+      <button class="btn btn-success text-uppercase">Book Appointment</button>
+    </div>
+  </div>
+</div>
+
+

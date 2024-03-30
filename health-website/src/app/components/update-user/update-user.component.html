@@ -1,0 +1,158 @@
+
+<div class="container register-container w-100  ">
+  <div class="card shadow border">
+    <div class="card-header ">
+  <h3 class="reg">update</h3>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="updateForm" class="p-3 bg-light" (ngSubmit)="handleForm()">
+        <div class="form-group">
+          <input
+          placeholder="Enter the user Name "
+          type="text"
+          class="form-control my-3 "
+          id="name"
+          formControlName="name"
+
+          />
+          @if (updateForm.get('name')?.errors && updateForm.get('name')?.touched) {
+          <div id="emailHelp" class="alert alert-danger p-1 small w-50 mx-auto text-center  ">
+            @if ( updateForm.get('name')?.getError("minlength")) {
+            <p> Name is Min Length 3 </p>
+            }
+            @if ( updateForm.get('name')?.getError("maxlength")) {
+            <p> Name is Max Length 20 </p>
+            }
+          </div>
+        }
+        </div>
+        <div class="form-group">
+          <input
+          placeholder="Enter the Email "
+            type="email"
+            class="form-control my-3"
+            id="email"
+            formControlName="email"
+            name="email"
+          />
+          @if (updateForm.get('email')?.errors && updateForm.get('email')?.touched) {
+            <div id="emailHelp" class="alert alert-danger p-1 small w-50 mx-auto text-center  ">
+              @if ( updateForm.get('email')?.getError("email")) {
+              <p> Enter the email </p>
+              }
+        </div>
+      }
+        </div>
+        <!-- <div class="form-group  d-flex justify-content-around align-items-center">
+          <div class="male">
+            <label class="p-2" for="Male">Male :</label>
+            <input  type="radio" id="Male"
+            name="gender"
+             value="male"
+            formControlName="gender"
+            >
+          </div>
+            <div class="female">
+              <label class="p-2" for="Female">Female :</label>
+              <input  type="radio"
+               id="Female"
+               name="gender"
+               value="female"
+              formControlName="gender"
+              >
+            </div>
+                </div> -->
+        <!-- <div class="form-group">
+
+          <input
+          placeholder="Enter the Password "
+            type="password"
+            class="form-control my-3"
+            id="password"
+            formControlName="password"
+            name="password"
+          />
+          @if (updateForm.get('password')?.errors && updateForm.get('password')?.touched) {
+            <div id="emailHelp" class="alert alert-danger p-1 small w-50 mx-auto text-center  ">
+
+              @if ( updateForm.get('password')?.getError("pattern")){
+                <p> min lenth 6  </p>
+              }
+            </div>
+          }
+        </div>
+        <div class="form-group">
+       <input type="tel" id="number"
+        formControlName="number"
+       class="form-control my-3"
+       placeholder="Enter the number"
+       name="number"
+          >
+
+        </div>
+        <div class="form-group">
+       <input type="number" id="age"
+        formControlName="age"
+       class="form-control my-3"
+       placeholder="Enter the age"
+       name="age"
+          >
+        </div> -->
+        <!-- <div class="form-group">
+       <input type="text" id="address"
+        formControlName="address"
+       class="form-control my-3"
+       placeholder="Enter the address"
+       name="address"
+          >
+        </div> -->
+        <div class="form-group  d-flex justify-content-around align-items-center">
+            <div class="doctor">
+              <label class="p-2" for="Doctor" >Doctor :</label>
+              <input class="p-0" type="radio" id="Doctor" name="is_admin"
+              formControlName="is_admin"
+              value="doctor"
+              (click)="showDepartement()"
+
+               >
+              </div>
+              <div class="patient">
+               <label class="p-2" for="patient">patient : </label>
+            <input type="radio" id="patient" name="is_admin"
+            formControlName="is_admin"
+            value="patient"
+            (click)="removeDepartement()"
+
+            >
+            </div>
+            <div class="departement d-none" id="departement">
+              <input class="my-2 form-control" type="text" id="departement" name="department_id"
+              formControlName="department_id"
+              placeholder="Enter the departement id"
+               >
+            </div>
+          </div>
+          <div class="departement d-none" id="departement">
+
+            <input class="my-2 form-control" type="text" id="departement" name="department_id"
+            formControlName="department_id"
+            placeholder="Enter the departement id"
+             >
+          </div>
+
+<div class="btnn">
+  <button
+  type="submit"
+  class="btn btn-primary d-block w-100 "
+>
+  update
+</button>
+</div>
+      </form>
+      @if (this.error) {
+        <p class="alert alert-danger p-1 w-50 mx-auto mb-0">{{this.error}}</p>
+      }
+    </div>
+  </div>
+</div>
+

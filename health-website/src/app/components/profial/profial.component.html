@@ -1,0 +1,27 @@
+<div class="sectionProfial">
+  <div class="container">
+    @for (doctor of products.data; track doctor.id) {
+
+    <div class="row">
+      <div class="col-md-3 ">
+        <div class="layerProfial">
+          <img [src]="doctor.imageCover" class="w-25 rounded-circle" [alt]="doctor.title">
+          <p>specialist : {{doctor.brand}}</p>
+          <p>age : {{doctor.slug}}</p>
+        </div>
+      </div>
+
+      <div class="col-md-9 border-start">
+        <div class="layerProfialPartTwo">
+          <h1>{{doctor.title}}</h1>
+          <p>{{doctor.description}}</p>
+          <p> المنيل : شارع المنيل الرئيسي - ميدان الباشا</p>
+          <p>request: {{doctor.price}}</p>
+          <hr>
+          
+        </div>
+      </div>
+    </div>
+  }
+  </div>
+</div>

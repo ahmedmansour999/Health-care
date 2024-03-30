@@ -1,0 +1,102 @@
+<br>
+<br>
+<nav
+  id="orders-table-tab"
+  class="orders-table-tab app-nav-tabs nav shadow-sm flex-column flex-sm-row py-5 mt-5 "
+>
+<a
+class="flex-sm-fill text-sm-center nav-link"
+[class.active]="selectedDepartment === '' "
+(click)="getDepartments()"
+>
+  All
+</a>
+  @for(department of departments ; track department.id){
+  <a
+    class="flex-sm-fill text-sm-center nav-link"
+    [class.active]="selectedDepartment === department.name"
+    (click)="showDoctorsByDepartment(department)"
+  >
+    {{ department.name }}
+  </a>
+  }
+</nav>
+
+@if (selectedDepartment) {
+<div>
+  <section id="doctors" class="doctors section-bg">
+    <div class="container" data-aos="fade-up">
+      <div class="section-title">
+        <h2>Doctors</h2>
+        <p>
+          Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex
+          aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos
+          quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia
+          fugiat sit in iste officiis commodi quidem hic quas.
+        </p>
+      </div>
+
+      <div class="row">
+        @for(doctor of selectedDepartment.doctor ; track doctor.id ){
+
+        <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+          <div class="member" data-aos="fade-up" data-aos-delay="200">
+            <div class="member-img">
+              <img src="http://127.0.0.1:8000/{{doctor.image}}" [routerLink]="['doctorDetails', doctor.id]"
+              class="img-fluid"alt=""/>
+            </div>
+            <div class="member-info">
+              <h4 [routerLink]="['doctorDetails', doctor.id]"
+              >{{doctor.name}}</h4>
+              <span>{{doctor.specialty}}</span>
+            </div>
+          </div>
+        </div>
+
+        }
+      </div>
+    </div>
+  </section>
+  <!-- End Doctors Section -->
+</div>
+}@else {
+  <div>
+    <section id="doctors" class="doctors section-bg">
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">
+          <h2>Doctors</h2>
+          <p>
+            Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex
+            aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos
+            quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia
+            fugiat sit in iste officiis commodi quidem hic quas.
+          </p>
+        </div>
+
+        <div class="row">
+          @for (department of departments; track department) {
+            @for(doctor of department.doctor ; track doctor.id ){
+
+              <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+                <div class="member" data-aos="fade-up" data-aos-delay="200">
+                  <div class="member-img">
+                    <img src="http://127.0.0.1:8000/{{doctor.image}}" [routerLink]="['doctorDetails', doctor.id]"
+                    class="img-fluid"alt=""/>
+
+                  </div>
+                  <div class="member-info">
+                    <h4 [routerLink]="['doctorDetails', doctor.id]"
+                    >{{doctor.name}}</h4>
+                    <span>{{doctor.specialty}}</span>
+                  </div>
+                </div>
+              </div>
+
+              }
+          }
+        </div>
+      </div>
+    </section>
+    <!-- End Doctors Section -->
+  </div>
+}
